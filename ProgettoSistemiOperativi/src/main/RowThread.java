@@ -1,29 +1,36 @@
 package main;
 
-import java.util.Vector;
-
 public class RowThread extends Thread {
 
 	private int rowNumber;
 	private int[] rowPixels;
-	private Vector<Result> results;
-	
-	public RowThread(int rowNumber, int[] rowPixels, Vector<Result> results) {
+	private int maxPixelValue;
+	private int maxSequence;
+
+	public RowThread(int rowNumber, int[] rowPixels) {
 		this.rowNumber = rowNumber;
 		this.rowPixels = rowPixels;
-		this.results = results;
 	}
-	
+
 	@Override
 	public void run() {
-		/*
-		System.out.println(rowPixels.length);
-		for(int i = 0; i < rowPixels.length; i++) {
-			System.out.println(rowPixels[i]);
-		}
-		*/
-		//DEBUG per capire se funge
+		// DEBUG per capire se funge
 		System.out.println("riga: " + rowNumber);
+		int sequence = 0;
+		int previous = rowPixels[0];
+		maxSequence = 0;
+		maxPixelValue = rowPixels[0];
+		for (int i = 0; i < rowPixels.length; i++) {
+			if (rowPixels[i] == previous)
+				sequence++;
+			else
+				sequence = 1; // ricomincia il conto da 1
+			if (sequence > maxSequence) {
+				maxSequence = sequence;
+				maxPixelValue = rowPixels[i];
+			}
+			previous = rowPixels[i];
+		}
 	}
 
 	/**
@@ -40,6 +47,12 @@ public class RowThread extends Thread {
 		this.rowPixels = rowPixels;
 	}
 
-	
-	
+	public int getMaxPixelValue() {
+		return maxPixelValue;
+	}
+
+	public int getMaxSequence() {
+		return maxSequence;
+	}
+
 }
