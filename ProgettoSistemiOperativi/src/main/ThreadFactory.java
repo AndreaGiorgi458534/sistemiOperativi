@@ -54,5 +54,6 @@ public class ThreadFactory {
 		Color c = new Color(pixel);	//per poter far vedere il risultato in formato RGB
 		System.out.println("row: " + rowNumber + " pixel: " + pixel + " sequenza: " + maxSequence);
 		System.out.println("Colore: " + " " + c.getRed() +  " " + c.getGreen() + " " + c.getBlue());
+		new ColorFrame(c, rowNumber, maxSequence);
 	}
 }

@@ -20,8 +20,9 @@ public class Startup {
 	public static void main(String[] args) {
 		BufferedImage i;
 		try {
+			i = ImageIO.read(new File("resources/solid-green-background.jpg")); // per eseguirlo da eclipse (da togliere)
 			//i = ImageIO.read(new File("../resources/solid-green-background.jpg"));
-			i = ImageIO.read(new File(args[0]));
+			//i = ImageIO.read(new File(args[0]));
 			System.out.println("Tutto Bene");
 			ThreadFactory tf = new ThreadFactory(i);
 			tf.start();
