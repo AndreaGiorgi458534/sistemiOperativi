@@ -26,9 +26,7 @@ public class RowThread extends Thread {
 	 * Metodo di run del thread. Implementa l'algoritmo di ricerca, memorizzando
 	 * il pixel che compare più volte di seguito
 	 */
-	public void run() {
-		// DEBUG per capire se funge
-		//System.out.println("riga: " + rowNumber);
+	public void run() {		
 		int sequence = 0;
 		int previous = rowPixels[0];
 		maxSequence = 0;

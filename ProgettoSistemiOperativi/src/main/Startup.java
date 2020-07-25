@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
  *
  */
 public class Startup {
-
 	/**
 	 * Ingresso del programma.
 	 * Accetta un'immagine e ne trova la riga con il massimo numero di pixel consecutivi uguali e la codifica rgb di tali pixel
@@ -19,11 +18,8 @@ public class Startup {
 	 */
 	public static void main(String[] args) {
 		BufferedImage i;
-		try {
-			i = ImageIO.read(new File("resources/solid-green-background.jpg")); // per eseguirlo da eclipse (da togliere)
-			//i = ImageIO.read(new File("../resources/solid-green-background.jpg"));
-			//i = ImageIO.read(new File(args[0]));
-			System.out.println("Tutto Bene");
+		try {			
+			i = ImageIO.read(new File(args[0])); 			
 			ThreadFactory tf = new ThreadFactory(i);
 			tf.start();
 		} catch (IOException e) {
@@ -31,7 +27,7 @@ public class Startup {
 			//Teoricamente questo pezzo serve se l'utente non inserisce un'immagine
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("Uso: java -jar nome_jar path_immagine");
+			System.out.println("Uso: Inserire un'immagine come argomento.");
 		}
 
 	}

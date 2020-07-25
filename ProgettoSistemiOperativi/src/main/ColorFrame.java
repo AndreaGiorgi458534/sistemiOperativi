@@ -15,8 +15,8 @@ public class ColorFrame extends JFrame {
 		double w = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		double h = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setSize((int)w/4, (int)h/4);
-		setTitle("Sequenza più lunga in una riga");
-		JLabel textLabel = new JLabel(" Riga numero: " + rowNum + " Sequenza: " + seq + " "
+		setTitle("Risultato");
+		JLabel textLabel = new JLabel(" Riga numero: " + rowNum + "Lunghezza Sequenza: " + seq + " "
 				+ " Colore: " + c.getRed() + " " + c.getGreen() + " " + c.getBlue() + " ", SwingConstants.CENTER);
 		
 		JPanel label = new JPanel();
